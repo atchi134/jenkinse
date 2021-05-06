@@ -1,1 +1,27 @@
+node {
+    stage('gitclone') {
+        git 'https://github.com/atchi134/apps.git'
+        }
+    
+    stage('maven clean') {
+        sh 'mvn clean'
+    }
+	stage('maven package') {
+        sh 'mvn package'
+    }
+	stage('maven validate') {
+        sh 'mvn validate'
+    }
+	stage('maven compile') {
+        sh 'mvn compile'
+    }
+	stage('maven test') {
+        sh 'mvn test'
+    }
 
+	stage('maven deploy') {
+        sh 'mvn deploy'
+    }
+	
+	}
+	
